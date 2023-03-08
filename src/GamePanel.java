@@ -65,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
         paddle2.draw(g);
         ball.draw(g);
         score.draw(g);
+        Toolkit.getDefaultToolkit().sync();
     }
 
     @Override
@@ -100,7 +101,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(ball.intersects(paddle1))
         {
-            ball.xVelocity=-ball.xVelocity;
+            ball.xVelocity=Math.abs(ball.xVelocity);
             ball.xVelocity++;
             if(ball.yVelocity > 0)
             {
@@ -113,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(ball.intersects(paddle2))
         {
-            ball.xVelocity = -ball.xVelocity;
+            ball.xVelocity = Math.abs(ball.xVelocity);
             ball.xVelocity++;
             if(ball.yVelocity>0)
             {
